@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "RPC interface to the Matrix federated network",
   "main": "app/index.js",
-  "repository": "https://gitlab.com/hellabots/matrix-rpc-js",
+  "repository": "https://github.com/zhaytee/matrix-rpc-js",
   "author": "Joe Toscano <joetoscano@pm.me>",
   "license": "ISC",
   "dependencies": {
