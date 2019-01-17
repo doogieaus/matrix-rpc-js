@@ -66,9 +66,8 @@ export default class Session {
         // Really should wait for this to finish before proceeding...
         result.initCrypto();
 
-        // Eh? I thought auto-bind was supposed to take care of this. >_<
-        // const cb = (state, prevState, data) => { syncEventHandler(state, prevState, data); };
         result.on("sync", syncEventHandler);
+
         return result
     }
 
