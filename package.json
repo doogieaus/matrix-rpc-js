@@ -1,0 +1,30 @@
+{
+  "name": "matrix-rpc-js",
+  "version": "0.1.0",
+  "description": "RPC interface to the Matrix federated network",
+  "main": "app/index.js",
+  "repository": "https://gitlab.com/hellabots/matrix-rpc-js",
+  "author": "Joe Toscano <joetoscano@pm.me>",
+  "license": "ISC",
+  "dependencies": {
+    "@grpc/proto-loader": "^0.3.0",
+    "@types/auto-bind": "^1.2.0",
+    "@types/node": "^10.12.18",
+    "@types/uuid": "^3.4.4",
+    "auto-bind": "^2.0.0",
+    "grpc": "^1.17.0",
+    "lru-cache": "^5.1.1",
+    "matrix-js-sdk": "^0.14.2",
+    "node-localstorage": "^1.3.1",
+    "olm": "https://matrix.org/packages/npm/olm/olm-3.0.0.tgz",
+    "protobufjs": "^6.8.8",
+    "source-map-support": "^0.5.10",
+    "typescript": "^3.2.2",
+    "uuid": "^3.3.2",
+    "winston": "^3.1.0"
+  },
+  "scripts": {
+    "build": "tsc --project .",
+    "start": "node app/index.js"
+  }
+}

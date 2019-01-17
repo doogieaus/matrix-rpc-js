@@ -1,0 +1,96 @@
+syntax = "proto3";
+
+package matrix;
+
+service Matrix {
+    rpc StartSession (StartSessionRequest) returns (stream SessionEvent);
+    rpc GetAccessToken (GetAccessTokenRequest) returns (GetAccessTokenResponse);
+    rpc JoinRoom (JoinRoomRequest) returns (JoinRoomResponse);
+    rpc Leave (LeaveRequest) returns (LeaveResponse);
+    rpc SendTextMessage (SendTextMessageRequest) returns (SendTextMessageResponse);
+    rpc SendReadReceipt (SendReadReceiptRequest) returns (SendReadReceiptResponse);
+}
+
+message GetAccessTokenRequest {
+    string homeserver = 1;
+    string username = 2;
+    string password = 3;
+}
+message GetAccessTokenResponse {
+    string user_id = 1;
+    string home_server = 2;
+    string access_token = 3;
+    string device_id = 4;
+}
+
+message StartSessionRequest {
+    string session_id = 1;
+    string homeserver = 2;
+    string user_id = 3;
+    string display_name = 4;
+    string device_id = 5;
+    string access_token = 6;
+    string initial_presence = 7;
+}
+
+message JoinRoomRequest {
+    string session_id = 1;
+    string room_id = 2;
+}
+message JoinRoomResponse {}
+
+message LeaveRequest {
+    string session_id = 1;
+    string room_id = 2;
+}
+message LeaveResponse {}
+
+message SendTextMessageRequest {
+    string session_id = 1;
+    string room_id = 2;
+    string body = 3;
+}
+message SendTextMessageResponse {}
+
+message SendReadReceiptRequest {
+    string session_id = 1;
+    string event_id = 2;
+}
+message SendReadReceiptResponse {}
+
+//
+//
+// -------------------------------- EVENTS ------------------------------------
+//
+//
+
+message SessionEvent {
+    string session_id = 1;
+    string type = 2;
+    string sender = 3;
+    string room_id = 4;
+    string event_id = 5;
+    oneof content {
+        MRoomMessage m_room_message = 6;
+        MTyping m_typing = 7;
+        MPresence m_presence = 8;
+        XReady x_ready = 9;
+    }
+}
+
+message MRoomMessage {
+    string body = 1;
+    string msgtype = 2;
+}
+
+message MTyping {
+    repeated string user_ids = 1;
+}
+
+message MPresence {
+    int64 last_active_ago = 1;
+    string presence = 2;
+    bool currently_active = 3;
+}
+
+message XReady {}
