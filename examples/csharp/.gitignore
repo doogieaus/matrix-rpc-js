@@ -1,0 +1,4 @@
+bin/
+obj/
+AuthParams.json
+Config.json
