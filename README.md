@@ -20,22 +20,26 @@ By default, the daemon listens on `0.0.0.0:58558`. This can be customized by set
     > `$ yarn install`
 4. Build and run the daemon.
     > `$ yarn build`
+    
     > `$ yarn start`
 ### Docker
 Pre-built image from DockerHub: https://hub.docker.com/r/zhaytee/matrix-rpc-js
-`$ docker run -p 58558:58558 zhaytee/matrix-rpc-js:1.0.1`
+
+`$ docker run -d -p 58558:58558 zhaytee/matrix-rpc-js:1.0.1`
 
 ---
 
 ## How to Call RPCs
+
+- Use one of the pre-built interfaces (in `proto/compiled/`)
+
+### OR
+
 1. Install grpc utilities (`protoc` and the grpc plugin)
     * https://grpc.io/docs/quickstart/
     * https://developers.google.com/protocol-buffers/docs/proto3
 2. Use `proto/matrix.proto` to generate a grpc interface for the language/platform of your choice
 
-### OR
-
-- Use one of the pre-built interfaces (in `proto/bindings/`)
 
 ---
 
