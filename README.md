@@ -22,8 +22,8 @@ By default, the daemon listens on `0.0.0.0:58558`. This can be customized by set
     > `$ yarn build`
     > `$ yarn start`
 ### Docker
-1. `$ docker build -t matrix-rpc-js .`
-2. `$ docker run matrix-rpc-js`
+Pre-built image from DockerHub: https://hub.docker.com/r/zhaytee/matrix-rpc-js
+`$ docker run -p 58558:58558 zhaytee/matrix-rpc-js:1.0.1`
 
 ---
 
@@ -32,6 +32,10 @@ By default, the daemon listens on `0.0.0.0:58558`. This can be customized by set
     * https://grpc.io/docs/quickstart/
     * https://developers.google.com/protocol-buffers/docs/proto3
 2. Use `proto/matrix.proto` to generate a grpc interface for the language/platform of your choice
+
+### OR
+
+- Use one of the pre-built interfaces (in `proto/bindings/`)
 
 ---
 
